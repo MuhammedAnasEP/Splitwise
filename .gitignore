@@ -1,0 +1,4 @@
+venv
+expenses/__pycache__
+expenses/migrations
+Splitwise/__pycache__

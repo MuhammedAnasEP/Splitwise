@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Signup</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		
+		<link rel="stylesheet" href="{% static 'signin_signup/fonts/linearicons/style.css' %}">
+		<link rel="stylesheet" href="{% static 'signin_signup/css/style.css' %}">
+	</head>
+
+	<body>
+
+		<div class="wrapper">
+			<div class="inner">
+				<img src="{% static 'signin_signup/images/image-1.png' %}" alt="" class="image-1">
+				<form action="/signup/" method="post">
+                    {% csrf_token %}
+					<h3>Welcome</h3>
+                    {% if messages %}
+                    <div style="text-align: center;border: 1px solid red; padding: 15px; margin-bottom: 15px;color: red;">
+                            {% for message in messages %}
+                                <p>{{message}}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+					<div class="form-holder">
+						<span class="lnr lnr-user"></span>
+						<input type="text" class="form-control" name="name" placeholder="Name or Username" required>
+					</div>
+					<div class="form-holder">
+						<span class="lnr lnr-envelope"></span>
+						<input type="text" class="form-control" name="email" placeholder="Mail" required>
+					</div>
+                    <div class="form-holder">
+						<span class="lnr lnr-user"></span>
+						<input type="text" class="form-control" name="mobile" placeholder="Phone Number" required>
+					</div>
+					<div class="form-holder">
+						<span class="lnr lnr-lock"></span>
+						<input type="password" class="form-control" name="password" placeholder="Password" required>
+					</div>
+					<div class="form-holder">
+						<span class="lnr lnr-lock"></span>
+						<input type="password" class="form-control" name="confirmpassword" placeholder="Confirm Password" required>
+					</div>
+					<button>
+						<span>Register</span>
+					</button>
+                    <a href="/signin" style="margin-left: 50%;">Already have account?</a>
+				</form>
+                <img src="{% static 'signin_signup/images/image-2.png' %}" alt="" class="image-2">
+			</div>
+			
+		</div>
+		
+		<script src="{% static 'signin_signup/js/jquery-3.3.1.min.js' %}"></script>
+		<script src="{% static 'signin_signup/js/main.js' %}"></script>
+	</body>
+</html>

@@ -1,0 +1,84 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Expense Balances</title>
+    <link rel="stylesheet" href="{% static 'animate.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'fa4/css/font-awesome.min.css' %}" />
+    <script src="{% static 'jquery-3.5.1.min.js' %}"></script>
+    <script src="{% static 'bootstrap.min.js' %}"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #4d4646;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .exp {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        p {
+            margin: 0;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">AskMe</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/show-balances">Balance</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/add-expense">Add Expense</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signout">Logout</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="exp">
+        {% if messages %}
+        <div style="text-align: center;border: 1px solid rgb(7, 49, 27); padding: 15px; margin-bottom: 15px;">
+            {% for message in messages %}
+            <p style="color: rgb(7, 179, 179);">{{message}}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <h1>Expense Balances</h1>
+        <p>Name: {{ name }}</p>
+        
+        <p>Total Expense: {{ total_expense }}</p>
+    </div>
+</body>
+</html>
